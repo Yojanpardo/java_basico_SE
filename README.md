@@ -221,9 +221,85 @@ Nos sirven para hacer comparaciones y nos regresa un valor booleano
 
 ### Operadores lógicos
 |Operador|Nombre|Ejemplo|
-|:-:|:-:|:-:|
-|&&|and|a && b|
-|\|\||or|a || b|
-|!|not|!a|
+|:------:|:----:|:-----:|
+|   &&   |  and | a && b|
+|  \|\|  |  or  | a || b|
+|    !   |  not |   !a  |
 
 Se utilizan con variables booleanas y sirven para ser utilizados en las tomas de decisiones.    
+
+## Control de flujo 
+para que nuestros programas funciones por lo general hay que tener un control sobre lo que está sucediendo y para ello podemos hacer uso de las condicionales con la ayuda de unas herramientas otorgadas por java que son los if, else, switch y bucles como while, do while, for, for each.  
+Las condicionales utilizan operadores relacionales y lógicos para determinar el flujo de la información.  
+
+### if else
+Es la condicional básica, cuando la instrucción es cierta ejecuta una cosa y si no ṕues hace otra cosa. Se declaran de la siguiente manera:
+~~~java
+byte a = 1;
+byte b = 2;
+
+if (a < b){
+  System.out.print('Si es menor');  
+}else if (a==b){
+    System.out.print('Son iguales');
+}else{
+    System.out.print('Ninguna de las dos')
+}
+~~~
+
+### switch
+Es similar al if else pero tiene mas caminos a escoger y se declara de la siguiente manera:
+~~~java
+switch(a){
+    case valor1:
+        System.out.print('aquí van unas acciones');
+    break;
+    case valor2:
+        System.out.print('aquí van otras acciones');
+    break;
+    default:
+        System.out.print('aqui van las acciones por default');
+    break;
+}
+~~~
+### Bucles
+Son controles de flujo que se repetirán la cantidad de veces que lo deseemos.
+
+#### While, do while, for, for each
+~~~java
+byte a = 10, b = 0;
+while (a >= b){
+    System.out.print(b);
+    b++; 
+}
+//Se ejecutará 11 veces este ciclo
+
+do{
+    System.out.print(b);
+    b++;
+}while (a >= b);
+//Se ejecutará al menos una vez
+
+for (b=0; a>=b; b++ ) {
+    System.out.println(b);
+}
+//Igual que el while pero con una linea menos
+
+for (dataType variableName: array) {
+    System.out.println(variableName);
+}
+~~~
+
+Podemos recorrer un arreglo para leerlo o para rellenarlo utilizando un bucle, se recomienda más que todo hacer uso de un for o un foreach
+~~~java
+short[] array1=new short[5];
+//Rellenando un array con un for
+for (int i = 0; i < 5; i++) {
+    array1[i] = i + 1;
+    System.out.println("numero en la pocisión["+ i +"] = " + array1[i]);
+}
+//El foreach es más aspero porque si lel
+for (short j : array1 ) {
+    System.out.println(j);
+}
+~~~
