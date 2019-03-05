@@ -1,8 +1,8 @@
 # Curso de Java básico SE de Platzi
-En este repositorio se van a almacenar los archivos y notas tomadas durante el transcurso del curso.
-Encontramos java en muchísimos dispositivos, desde telefonos celulares, controles remotos, hasta los serviders web que mueven el mundo tecnologico.
+En este repositorio se van a almacenar los archivos y notas tomadas durante el transcurso del curso.  
+Encontramos java en muchísimos dispositivos, desde teléfonos celulares, controles remotos, hasta los servidores web que mueven el mundo tecnológico.
 
-## Categorias de java
+## Categorías de java
 Existen java SE (Standar Edition) y EE (Entreprice Edition)
 
 ## Herramientas de desarrollo
@@ -18,7 +18,7 @@ __WORA__ Write Once Run Anywhere
 * Orientado a objetos
 * Distribuido
 * Arquitectura neutral
-* Multihilo
+* Multi-hilo
 * Portable
 * Alto desempeño
 * Seguro
@@ -26,10 +26,10 @@ __WORA__ Write Once Run Anywhere
 ## Origen de Java 
 Nace en 1991 por James Gosling, fue adquirida por Sun Microsystems. Nació con la iniciativa de que un software fuera altamente portable y compatible.  
 En 2009 Oracle adquiere Java y se genera una explosión de java.  
-Existen dos categorías de Java que son la Standar Edition y java Enterprice edition. Existión una que se llamó java Microedition que era para dispositivos móviles.  
+Existen dos categorías de Java que son la Standar Edition y java Enterprice edition. Existió una que se llamó java Micro Edition que era para dispositivos móviles.  
 En este curso veremos todo lo que es java SE, su base y sintaxis para el desarrollo de aplicaciones web y móviles.  
 
-## Heraamientas de desarrollo
+## Herramientas de desarrollo
 Necesitamos dos componentes importantes que son el JDK y el JRE para desarrollar y ejecutar nuestros programas.  
 Yo estoy utilizando Ubuntu 18.04 y voy a mostrar los comandos necesarios para instalar java en este sistema operativo.
 
@@ -45,13 +45,13 @@ Y listo tendremos java instalado en nuestro Ubuntu, si queremos verificarlo ejec
 $ java --version
 $ javac 
 ~~~
-Si la salida al ejecutar estos comandos es algo como un error pues entonces está mal instalado o no lo está, asi que regresa al paso anterior e intalalo nuevamente.
+Si la salida al ejecutar estos comandos es algo como un error pues entonces está mal instalado o no lo está, así que regresa al paso anterior e intentalo nuevamente.
 
 ## Java Virtual Machine 
-Java es ejecutado en una máquina virtual y por esto es tan portable, lo que hace es que tenemos nuestro código de java, java genera un codigo llamado Byte Code y este es traducido al lenguaje de la máquina para poder ser ejecutado.
+Java es ejecutado en una máquina virtual y por esto es tan portable, lo que hace es que tenemos nuestro código de java, java genera un código llamado Byte Code y este es traducido al lenguaje de la máquina para poder ser ejecutado.
 
 ## Definiendo la versión de java 
-Cuando estamos trabajando en diferentes proyectos a veces nos encontramos con que utilizamos diferentes versiones de java, por ejemplo en mi universidad con fines de aprendizaje tulizamos las versiones más recientes de java y para proyectos laborales se ve necesario utilizar la versión 1.6, entonces en ubuntu puedo cambiar la versión de java que necesite en cualquier momento con el siguiente comando.
+Cuando estamos trabajando en diferentes proyectos a veces nos encontramos con que utilizamos diferentes versiones de java, por ejemplo en mi universidad con fines de aprendizaje utilizamos las versiones más recientes de java y para proyectos laborales se ve necesario utilizar la versión 1.6, entonces en Ubuntu puedo cambiar la versión de java que necesite en cualquier momento con el siguiente comando.
 ~~~sh
 $ sudo update-alternatives --config java
 There are 2 choices for the alternative java (providing /usr/bin/java).
@@ -77,8 +77,8 @@ Existen los tipos de datos primitivo y tipo objeto
 ### Primitivos
 Son los tipos de datos que se manejan por defecto dentro del lenguaje de Java y son los siguientes:
 
-#### Númericos enteros
-Son los numeros enteros.
+#### Numéricos enteros
+Son los números enteros.
 
 * byte
 Ocupa un byte de memoria y puede contener valores entre -128 hasta 127
@@ -97,12 +97,12 @@ long facebook_id = 899807866492738478L;
 ~~~
 
 #### Punto flotante
-Son numeros decimales.
+Son números decimales.
 
 * float
-Ocupa 4 bytes de memoria y puede contener numeros decimales entre 
+Ocupa 4 bytes de memoria y puede contener números decimales entre 
 * double
-Ocupa 8 bytes de memoria y puede contener numeros decimales entre 
+Ocupa 8 bytes de memoria y puede contener números decimales entre 
 * Se declaran de la siguiente manera
 ~~~java
 float diametro = 34.25F;
@@ -131,20 +131,20 @@ boolean works = false;
 ~~~
 
 ## Sintaxis
-Java diferencia entre las mayusculas, las variables deben iniciar solo con letras, '$' o '_', no puenen iniciar con nada más.  
-Las constantes inician con mayusculas y se separan con guiones bajos.  
+Java diferencia entre las mayúsculas, las variables deben iniciar solo con letras, '$' o '_', no pueden iniciar con nada más.  
+Las constantes inician con mayúsculas y se separan con guiones bajos.  
 las clases las vamos a declarar como Upper camel case y las variables y métodos se manejarán con lower camel case.
 
 ## Cast
 Se trata de convertir una tipo de dato a otro tipo de dato.
-Un casteo es automático cuando el espacio de memoria de la variable a castear es menor al de la nueva variable. de lo contrario hace falta un casta, de igual manera cuando se va a cambiar de un tipo de dato entero a un flotante o caracter. excepto de char a int.  
+Un casteo es automático cuando el espacio de memoria de la variable a castear es menor al de la nueva variable. de lo contrario hace falta un casta, de igual manera cuando se va a cambiar de un tipo de dato entero a un flotante o carácter. excepto de char a int.  
 ~~~java
 short a = 100;
 byte b = (byte) a;
 ~~~
 
 ## Arreglos
-Los arreglos son objetos en los que podemos guardar mas de una variable, son como cajitas en las que podemos guardar muchas cosas y pueden ser de n dimensiones, entre mas complejo sea un arreglo, mas variables podran almacenarse en él y se podrán acceder a ellos utilizando el indice de cada cajita.
+Los arreglos son objetos en los que podemos guardar mas de una variable, son como cajitas en las que podemos guardar muchas cosas y pueden ser de n dimensiones, entre mas complejo sea un arreglo, mas variables podrán almacenarse en él y se podrán acceder a ellos utilizando el indice de cada cajita.
 ~~~java
 //aquí vamos a crear un par de arreglos de enteros
 int[] codes; 
@@ -158,12 +158,12 @@ char[][] names = {
 }//este es un arreglo dinámico 
 ~~~
 
-### Busqueda de elementos en arreglos
-Para acceder a los elementos de un arreglo lo vamos a hacer por los indices, por ejemplo, si quiero acceder a la 'r' del arreglo creado anteriormente deberia ingresar los inidices de las cajas y si están anidadas unas dentro de otras pues cogiendo cada cajita y cuando llego a los elementos pues el indice del elemento, lo veremos acontinuación.
+### Búsqueda de elementos en arreglos
+Para acceder a los elementos de un arreglo lo vamos a hacer por los indices, por ejemplo, si quiero acceder a la 'r' del arreglo creado anteriormente debería ingresar los indices de las cajas y si están anidadas unas dentro de otras pues cogiendo cada cajita y cuando llego a los elementos pues el indice del elemento, lo veremos a continuación.
 ~~~java
 System.out.println(names[1][2]);
 ~~~
-Tambien se puede asignar un valor a un campo del arreglo con el indice
+También se puede asignar un valor a un campo del arreglo con el indice
 ~~~java
 names[0][0]='Y'
 ~~~
@@ -171,7 +171,7 @@ names[0][0]='Y'
 ## Tipos de operadores en java
 
 ### Operadores aritméticos
-|Simbolo|Nombre|Descripción|Aplicación|
+|Símbolo|Nombre|Descripción|Aplicación|
 |:-------:|------|-----------|:----------:|
 |+|Suma|suma variables|c = a + b|
 |-|Resta|resta variables|c = a - b|
@@ -182,7 +182,7 @@ names[0][0]='Y'
 ### Operadores de asignación
 Son operadores que nos ayudan a asignar valores a las variables.  
 
-|Operador|Aplicación|Desgloce|
+|Operador|Aplicación|Desglose|
 |:--------:|:----------:|:--------:|
 |+=|a += b|a = a + b|
 |+=|a -= b|a = a - b|
@@ -190,7 +190,7 @@ Son operadores que nos ayudan a asignar valores a las variables.
 |+=|a /= b|a = a / b|
 
 ### Operadores de incremento y decremento
-|Operador|Nombre|Ejemplo|Desgloce|
+|Operador|Nombre|Ejemplo|Desglose|
 |:--:|:--:|:--:|:--:|
 |++|Incremento|i++|i = i+1|
 |--|Decremento|i--|i = i-1|
@@ -226,4 +226,4 @@ Nos sirven para hacer comparaciones y nos regresa un valor booleano
 |\|\||or|a || b|
 |!|not|!a|
 
-Se utilizan con bariables booleanas y sirven para ser utilizados en las tomas de decisiones.    
+Se utilizan con variables booleanas y sirven para ser utilizados en las tomas de decisiones.    
