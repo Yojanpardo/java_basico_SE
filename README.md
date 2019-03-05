@@ -1,5 +1,5 @@
 # Curso de Java básico SE de Platzi
-En seste repositorio se van a almacenar los archivos y notas tomadas durante el transcurso del curso.
+En este repositorio se van a almacenar los archivos y notas tomadas durante el transcurso del curso.
 Encontramos java en muchísimos dispositivos, desde telefonos celulares, controles remotos, hasta los serviders web que mueven el mundo tecnologico.
 
 ## Categorias de java
