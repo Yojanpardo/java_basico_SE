@@ -150,7 +150,8 @@ Los arreglos son objetos en los que podemos guardar mas de una variable, son com
 int[] codes; 
 short años[];
 //Definir el tamaño de los arreglos
-variableName = new dataTipe[capacity];
+//variableName = new dataTipe[capacity];
+codes =new int[5];
 //esta es otra forma de definir arreglo:
 char[][] names = {
     {'y','o','j','a','n'},
@@ -301,5 +302,212 @@ for (int i = 0; i < 5; i++) {
 //El foreach es más aspero porque si lel
 for (short j : array1 ) {
     System.out.println(j);
+}
+//Un ejemplo de un for anidado para recorrer un array multidimensional.
+//Definimos un array de 3 filas x 5 columnas
+int array[][]={{1,2,3,4,5}, {6,7,8,9,10}, {11,12,13,14,15}};
+
+//Recorremos el array multidimensional
+for (int i=0;i<array.length;i++){
+    for(int j=0;j<array[0].length;j++){
+        System.out.println(array[i][j]);
+    }
+~~~
+#### break, continue y return
+Break
+
+La sentencia “break” termina el bucle inmediatamente, y el control del programa se mueve a la siguiente sentencia después del bucle.
+
+Continue
+
+La sentencia “continue” salta la iteración actual de un bucle.
+
+Cuando se ejecuta la sentencia continue, el control del programa salta al final del bucle.
+
+*Normalmente se usa con declaraciones de toma de decisión (If, if else, while, do while, for)
+
+La instrucción **Return **: es usado para retornar un valor u objeto o salirse de un método. Causando que el control del programa sea transferido a la instrucción que invoco el metodo.
+
+## Programación orientada a objetos
+Se trata de tomar un gran problema y dividirlo en subproblemas y más subproblemas para hacer del gran problema, problemas más chiquitos.  
+los objetos pueden ser físicos y conceptuales, debemos tenerlo en cuenta a la hora de programar, un objeto debe tener las siguientes caracteristicas:  
+
+* nombres
+* atributos
+* por lo general son sustantivos.
+* funcionalidades y comportamientos
+
+### Analizando un objeto
+Vamos a tomar el ejemplo de un auto:
+un auto tiene ciertas características físicas:
+
+* color
+* matricula
+* diseño
+* etc
+
+Y comportamientos o acciones:
+
+* arrancar
+* frenar
+* reversa
+* etc.
+
+La clase es la forma en la cual se define un objeto y a partir de ella se pueden crear más objetos nuevos.  
+
+#### Estructura de una clase:
+Voy a mostrar la forma en la cual se declara una clase para crear objetos:
+~~~java
+public class auto{
+    //atributos
+    int id;
+    String matricula;
+    String Marca;
+    short modelo;
+    double precio;
+    boolean vendido;
+
+    //Comportamientos
+    public void mostrarDatos(){
+        System.out.println("pues se muestran los datos lel");
+    }
+    public boolean esVendido(){
+        System.out.println("pues muestra si ya se vendio o no");
+    }
+}
+~~~
+
+### Métodos
+Los metodos son los comportamientos que pueden tener nuestros objetos y los declaramos dentro de las clases, estos métodos pueden o no retornar algo, más adelante voy a mostrar como se declaran los métodos y como tener acceso a ellos.  
+Los métodos no se pueden declarar dentro de otros métodos, es una restricción de java, a diferencia de las clases que si podemos declarar clases dentro de las clases.  
+~~~java
+//primero debemos tener nuestra clase 
+public class Operaciones{
+    //todos los atributos de nuestro objeto van aquí
+    
+    //vamos a crear un método en el cual calcula la suma de dos numeros
+    public int suma(int a, int b){
+        //está compuesto de el modo de acceso, el tipo de dato que retorna (si es que retorna algo), el nombre del método y entre parentesis los datos que recibe (argumentos)
+        suma = a + b;
+        //aquí adentro va todo el código necesario para generar el resultado
+        return suma; 
+        //finalmente se retorna
+    }
+}
+~~~
+
+Para crear un nuevo objeto es necesario utilizar el método constructor de esa clase que ya está definido por defecto.
+~~~java
+
+public static void main(String[] args) {
+    Auto miAuto; //se declara el nuevo objeto de tipo auto
+    miAuto = new Auto(); //se inicializa el nuevo Auto usando el método constructor y le podemos añadir los valores en los parensis y el método constructor no retorna nada
+    miAuto.marca = "Ferrari" //asignando valores
+    miAuto.mostrarDatos(); //ejecutando una acción del objeto 
+}
+~~~
+
+### static
+El método main siempre es un método estático, ya que cuando se invoca no existen objetos creados con anterioridad porque la ejecución del programa aún no ha comenzado.
+
+El tipo main siempre será void (nulo) ya que no es un tipo función que devuelva un valor. Su misión es arrancar la ejecución, no devolver un valor.
+
+Un método de clase o static es aquel que puede ser invocado sin existir una instancia.
+
+**Por qué todos los métodos de main deben ser Estáticos?
+**Los métodos estáticos quiere decir que sólo pueden referenciar variables locales, otros métodos estáticos, miembros de MainClass u otras clases que también son estáticos.
+
+Un método static no puede acceder a una variable no-static, porque no es una instancia, el método static no sabe nada sobre ningún objeto instanciado.
+
+La equivalencia es: en static = clase, nonstatic = instancia. Haciendo el método llamado por la JVM (main()) un método static significa que la JVM no tiene que crear una instancia de nuestra clase solo para iniciar el código.
+
+### Sobrecarga de métodos 
+Cuando necesitamos que más de un método tengan los mismos nombres pero con diferentes argumentos.  
+Por ejemplo el método constructor necesitamos sobrecargarlo cuando queremos generar algunos campos obligatorios.
+
+### Modificadores de acceso
+dependiendo del acceso otorgado a los atributos de un objeto podremos modificarlos o no desde el metodo main. es recomendable dejarlos privados y solo poder modificarlos desde el método constructor. 
+
+* public
+* protected
+* default
+* private
+
+### getters y setters 
+Nos ayudan a leer y ecribir los valores de las variables de una clase, funcionan obteniendo una variable objetivo y a traves del metodo get obtenemos el valor de un atributo de un objeto y con un set le asignamos un valor.  
+Se puede hacer de la siguiente manera.
+~~~java
+//Este es un objeto
+public class Magazine {
+    //estos son sus atributos
+    int id;
+    String title;
+    String isbn;
+    String editorial;
+    String[] authors;
+    Date editionDate;
+    short year;
+    short numberPages;
+    //Este es el método constructor
+    public Magazine(String title, String isbn, String editorial, Date editionDate, short year, short numberPages) {
+        super();
+        this.title = title;
+        this.isbn = isbn;
+        this.editorial = editorial;
+        this.editionDate = editionDate;
+        this.year = year;
+        this.numberPages = numberPages;
+    }
+    //Este es un método get
+    public int getId() {
+        return id;
+    }
+    //Este es un método set
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getIsbn() {
+        return isbn;
+    }
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+    public String getEditorial() {
+        return editorial;
+    }
+    public void setEditorial(String editorial) {
+        this.editorial = editorial;
+    }
+    public String[] getAuthors() {
+        return authors;
+    }
+    public void setAuthors(String[] authors) {
+        this.authors = authors;
+    }
+    public Date getEditionDate() {
+        return editionDate;
+    }
+    public void setEditionDate(Date editionDate) {
+        this.editionDate = editionDate;
+    }
+    public short getYear() {
+        return year;
+    }
+    public void setYear(short year) {
+        this.year = year;
+    }
+    public short getNumberPages() {
+        return numberPages;
+    }
+    public void setNumberPages(short numberPages) {
+        this.numberPages = numberPages;
+    }
+    
 }
 ~~~
