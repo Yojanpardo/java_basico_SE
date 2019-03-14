@@ -511,3 +511,15 @@ public class Magazine {
     
 }
 ~~~
+
+## Herencia
+Es una característica que permite que una clase hija herede los atributos y acciones de una clase padre. Más adelante lo veremos en un ejemplo pero primero vamos a identificar en nuestro proyecto de amazon viewer las posibles herencias.
+
+#### Diagrama de las películas series y capítulos
+![Diagrama de las películas series y capítulos](img/films.png)
+
+#### Diagrama de las publicaciones
+![Diagrama de las publicaciones](img/publications.png)
+~~~java
+
+~~~
