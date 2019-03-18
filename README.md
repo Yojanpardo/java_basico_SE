@@ -116,7 +116,7 @@ Almacenan caracteres y pueden ser:
 ocupa 2 bytes y tiene un rango unicode
 * Se declaran de la siguiente manera
 ~~~java
-char gender = 'M';
+char gender = "M";
 ~~~
 
 #### Lógicos
@@ -515,11 +515,185 @@ public class Magazine {
 ## Herencia
 Es una característica que permite que una clase hija herede los atributos y acciones de una clase padre. Más adelante lo veremos en un ejemplo pero primero vamos a identificar en nuestro proyecto de amazon viewer las posibles herencias.
 
-#### Diagrama de las películas series y capítulos
+### Diagrama de las películas series y capítulos
 ![Diagrama de las películas series y capítulos](img/films.png)
 
-#### Diagrama de las publicaciones
+### Diagrama de las publicaciones
 ![Diagrama de las publicaciones](img/publications.png)
-~~~java
 
+### Super y this
+En java una clase padre es la super-clase y de ella se desprenden atributos hacia sus clases hijas haciendo uso de la palabra reservada extends, más adelante lo veremos en la práctica.  
+La subclase hereda todos los miembros de su superclase cuyos modificadores de acceso sean public o protected.  
+Hace referencia a los atributos de la misma clase hija.  
+##### Tenemos una clase padre que va a ser film
+~~~java
+//Esta será la clase padre
+public class Film {
+    private String title;
+    private String genre;
+    private String creator;
+    private int duration;
+    private short year;
+    private boolean viewed;
+    
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getGenre() {
+        return genre;
+    }
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+    public String getCreator() {
+        return creator;
+    }
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+    public int getDuration() {
+        return duration;
+    }
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+    public short getYear() {
+        return year;
+    }
+    public void setYear(short year) {
+        this.year = year;
+    }
+    public boolean isViewed() {
+        return viewed;
+    }
+    public void setViewed(boolean viewed) {
+        this.viewed = viewed;
+    }
+    public Film(String title, String genre, String creator, int duration) {
+        super();
+        this.title = title;
+        this.genre = genre;
+        this.creator = creator;
+        this.duration = duration;
+    }
+    
+}
 ~~~
+##### Y la clase hija Movie
+~~~java
+public class Movie extends Film {
+    
+    private int id;
+    private int timeViewed;
+    
+    public Movie(String title, String genre, String creator, int duration, short year) {
+        super(title, genre, creator, duration);
+        setYear(year);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getTimeViewed() {
+        return timeViewed;
+    }
+
+    public void setTimeViewed(int timeViewed) {
+        this.timeViewed = timeViewed;
+    }
+    
+    public void showData() {
+        //System.out.println("Title");
+        //System.out.println("Genre");
+        //System.out.println("Duration");
+    }
+    
+}
+~~~
+### Polimorfismo
+En ocasiones cuando deseamos utilizar un metodo de una clase padre en una clase hija se hace nesario que este tenga un comportamiento diferente, entonces lo que debemos hacer es reescribir ese método y se hace de la siguiente manera:
+~~~java
+//Creamos nuestra nueva clase, en este caso va a ser Chapteer que hereda de movie
+public class Chapter extends Movie{
+    private int id;
+    private byte seasonNumber;
+    
+    public Chapter(String title, String genre, String creator, int duration, short year, byte seasonNumber) {
+        super(title, genre, creator, duration, year);
+        this.setSeasonNumber(seasonNumber);
+    }
+
+    public byte getSeasonNumber() {
+        return seasonNumber;
+    }
+
+    public void setSeasonNumber(byte seasonNumber) {
+        this.seasonNumber = seasonNumber;
+    }
+    //Aquí estamos sobreescribiendo el metodo getId y le vamos a dar un comportamiento diferente 
+    @Override
+    public int getId() {
+        // TODO Auto-generated method stub
+        return this.id;
+    }
+}
+~~~
+
+## Interfaces
+Las interfaces son clases abastractas (clases sin implementación), no encapsulan datos, solo define cuales son los métodos que han de implementar las clases que necesiten de éstos.
+
+### Implementando interfaces
+Se hace haciendo clic derecho en el paquete y seleccionando new->interface.  
+Por lo general llevan nombres que inician por "I"
+
+Así luce una interfaz
+~~~java
+public interface IVisualizable {
+    Date startToSee(Date dateI);
+    void stopToSee(Date dateI, Date dateF);
+
+}
+~~~
+
+Y así se implementa en una clase 
+
+~~~java
+public class Book extends Publication implements IVisualizable{   
+    @Override
+    public Date startToSee(Date dateI) {
+        // TODO Auto-generated method stub
+        return dateI;
+    }
+
+    @Override
+    public void stopToSee(Date dateI, Date dateF) {
+        // TODO Auto-generated method stub
+        if(dateF.getSeconds() > dateI.getSeconds()) {
+            setTimeReaded(dateF.getSeconds() - dateI.getSeconds()); 
+        }else {
+            setTimeReaded(0);
+        }
+    }
+}
+~~~
+
+## Colecciones de datos
+A diferencia de los arreglos los tamaños no son fijos, son dinámicos.  
+Dentro de java existe una interfaz que se llama collection y se puede implementar de la forma que deseemos en nuestros proyectos.
+
+* List 
+* Set
+    * add(object o)
+    * add(int indice, object o)
+    * get(int indice)
+    * remove(int indice)
+    * clear()
+    * indexOf(object o)
+    * size()
+    * contains(object o)
+* ArrayList
+* Vector
